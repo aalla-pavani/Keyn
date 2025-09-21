@@ -23,6 +23,7 @@ git add filename.txt                             # stage a specific file
 git add .                                       # stage all files
 git commit -m "Commit message"                  # commit staged changes
 git commit --amend -m "Corrected commit message" # amend previous commit message
+git log --author="Your Name"    #This will show only the commits made by that author in the current branch
 
 5. Branching & Switching
 git branch                                      # list all local branches

@@ -98,3 +98,6 @@ git remote add origin https://github.com/aalla-pavani/prcject.git       # Add ne
 --------------------------
 git config http.postBuffer 524288000
 --------------------------
+Patch File (adding a patch file)
+git diff > bugfix.patch
+git apply bugfix.patch

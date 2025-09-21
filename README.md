@@ -104,3 +104,38 @@ git diff main origin/main   #Check the differences between your local branch and
 Patch File (adding a patch file)
 git diff > bugfix.patch
 git apply bugfix.patch
+-----------------------------
+Q IV. Docker Containerization [20 Marks]
+
+Check Docker Version & Images (2M)
+docker --version
+docker images
+
+Run Hello-World (2M)
+docker run hello-world
+
+Run Python Image Interactive (2M)
+docker run -it python:3.11 bash
+
+Dockerfile (3M)
+FROM tomcat:9.0
+COPY target/OnlineBanking.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+
+Build & Run Image (2M)
+docker build -t smarthub-image .
+docker run -d -p 8080:8080 smarthub-image
+
+List Containers (2M)
+docker ps -a
+
+Start & Stop (2M)
+docker stop <id>
+docker start <id>
+
+Push Image to Docker Hub (3M)
+docker tag smarthub-image your-dockerhub/smarthub-image
+docker push your-dockerhub/smarthub-image
+
+Logs of Container (2M)
+docker logs <container_id>

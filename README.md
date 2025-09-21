@@ -139,3 +139,31 @@ docker push your-dockerhub/smarthub-image
 
 Logs of Container (2M)
 docker logs <container_id>
+-----------------------------
+#Docker Compose
+
+version: "3.8"
+services:
+  tomcat:
+    image: your-dockerhub/smarthub-image
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sah_db
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
+
+docker-compose up -d #to run 
+docker exec -it <db_container> mysql -uroot -p  #Enter MySQL container & add table 
+CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(100));

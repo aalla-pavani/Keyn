@@ -98,6 +98,9 @@ git remote add origin https://github.com/aalla-pavani/prcject.git       # Add ne
 --------------------------
 git config http.postBuffer 524288000
 --------------------------
+git fetch origin
+git diff main origin/main   #Check the differences between your local branch and remote main branch.
+--------------------------
 Patch File (adding a patch file)
 git diff > bugfix.patch
 git apply bugfix.patch

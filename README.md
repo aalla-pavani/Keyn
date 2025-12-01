@@ -115,8 +115,9 @@ Run Hello-World (2M)
 docker run hello-world
 
 Run Python Image Interactive (2M)
-docker run -it python:3.11 bash
+docker run -it python:3.11 bash (if not working use docker pull python:3.11 and then run docker run -it python:3.11 bash)
 
+**in target floder->create dockerfile**
 Dockerfile (3M)
 FROM tomcat:9.0
 COPY target/OnlineBanking.war /usr/local/tomcat/webapps/
@@ -140,7 +141,8 @@ docker push your-dockerhub/smarthub-image
 Logs of Container (2M)
 docker logs <container_id>
 -----------------------------
-#Docker Compose
+**in target->dockercompose.yml**
+**#Docker Compose**
 
 version: "3.8"
 services:
@@ -167,3 +169,16 @@ volumes:
 docker-compose up -d #to run 
 docker exec -it <db_container> mysql -uroot -p  #Enter MySQL container & add table 
 CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(100));
+------------------------------
+**cli commands with redis**
+docker build -t redisnew .
+docker run --name myredisnew -d redisnew 
+docker ps # Shows a list of containers that are running right now.
+docker stop myredisnew 
+docker login 
+docker ps -a #Shows a list of all containers, including stopped ones. 
+docker commit 856ae4657fa9 snehal1729/redis1 #Takes a snapshot (saves changes) of the container with ID 0e993d2009a1 and creates a 
+new image called snehal1729/redis1. 
+docker images 
+ docker push snehal1729/redis1 
+ docker rm 856ae4657fa9 

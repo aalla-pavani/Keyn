@@ -214,18 +214,6 @@ CMD ["redis-server"]
 -> docker images
 -> docker rmi snehal1729/redis1 (your repo name)
 
-
-
-
- 
-docker stop myredisnew 
-docker login 
-docker ps -a #Shows a list of all containers, including stopped ones. 
-docker commit 856ae4657fa9 snehal1729/redis1 #Takes a snapshot (saves changes) of the container with ID 0e993d2009a1 and creates a 
-new image called snehal1729/redis1. 
-docker images 
- docker push snehal1729/redis1 
- docker rm 856ae4657fa9 
 ----------------------------------
 FOR YML FILE
 create a dompose file in pc and open in cmd
@@ -262,3 +250,4 @@ networks:
 
 volumes:
   db-data:
+->docker compose up -d

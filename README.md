@@ -226,3 +226,39 @@ new image called snehal1729/redis1.
 docker images 
  docker push snehal1729/redis1 
  docker rm 856ae4657fa9 
+----------------------------------
+FOR YML FILE
+create a dompose file in pc and open in cmd
+  ->docker-compose up -d
+  ->docker compose down
+  ->docker-compose up --scale wordpress=2 -d
+  ->docker-compose up -d
+  ->docker compose ps
+  
+  version: "3.9"
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: demo
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: demo_db
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-net
+    ports:
+      - "9090:4060"
+
+  redis:
+    image: redis:alpine
+    container_name: redis-server
+    networks:
+      - app-net
+
+networks:
+  app-net:
+
+volumes:
+  db-data:

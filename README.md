@@ -171,9 +171,53 @@ docker exec -it <db_container> mysql -uroot -p  #Enter MySQL container & add tab
 CREATE TABLE students(id INT PRIMARY KEY, name VARCHAR(100));
 ------------------------------
 **cli commands with redis**
-docker build -t redisnew .
-docker run --name myredisnew -d redisnew 
+docker build -t my-redis .
+docker pull redis 
+docker run --name my-redis -d redis 
 docker ps # Shows a list of containers that are running right now.
+docker exec -it my-redis redis-cli  #to access it 
+ SET name "Alice"
+ GET name 
+ docker stop my-redis 
+ docker start my-redis
+ docker rm my-redis 
+------------------
+creating a docker file
+->Create a folder like C:\DockerProjects\Redis. 
+-> Open Git Bash and navigate to the folder
+->cd /c/DockerProjects/Redis
+->Inside the folder, create a file named Dockerfile (nano Dockerfile) and add the below one
+FROM redis:latest 
+CMD ["redis-server"] 
+->docker build -t redisnew  . 
+-> docker run --name myredisnew -d redisnew
+->docker ps
+->docker stop myredisnew 
+->docker login 
+-> docker ps -a
+-> docker commit 856ae4657fa9 snehal1729/redis1 
+-> docker images 
+-> docker push snehal1729/redis1 
+-> docker rm 856ae4657fa9
+->docker rmi budarajumadhurika/redis1 #deletes 
+-> docker ps -a
+-> docker logout 
+->docker pull snehal1729/redis1 
+-> docker run --name myredis -d snehal1729/redis1 
+->docker exec -it myredis redis-cli 
+-> SET name "Abcdef"
+-> GET name
+->exit 
+-> docker ps -a 
+->docker stop myredis 
+->docker rm 50a6e4a9c326
+-> docker images
+-> docker rmi snehal1729/redis1 (your repo name)
+
+
+
+
+ 
 docker stop myredisnew 
 docker login 
 docker ps -a #Shows a list of all containers, including stopped ones. 
